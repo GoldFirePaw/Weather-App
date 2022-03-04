@@ -5,22 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0448c36d93.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="src/styles.css">
     <title>Weather App</title>
 </head>
 
 <body>
-    <div>
+    <div class="container box">
         <form>
-            <input type="text">
-            <button type="submit" id="searchCityButton"></button>
+            <input class="searchInput" type="text" placeholder="Type your city name" id="search-city-input">
+            <button class="searchCityButton" type="submit" id="search-city-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </form>
-        <button id="currentLocationButton">
-        </button>
-        <div>
+        <button class="currentLocationButton" id="current-location-button">
+                <i class="fa-solid fa-magnifying-glass-location"></i>
+                Your location
+            </button>
+        <div class="row align-items-center justify-content-center currentTempInfo">
+            <div class="col-3 currentCityName">Lyon</div>
+            <div class="col-3 currentTemp">6°C</div>
+            <div class="col-3"><i class="fa-solid fa-sun currentWeather"></i></div>
+            <div class="col-3"><button class="tempConverterButton">°C</button><button class="tempConverterButton">°F</button></div>
         </div>
-        <h1>Forecast</h1>
-        <div>
+        <p>Forecast</p>
+        <div class="row text-center align-items-center" style="height: 60px">
+            <div class="col align-middle forecastDays">Mon</div>
+            <div class="col  align-middle forecastDays">Tue</div>
+            <div class="col  align-middle forecastDays">Wed</div>
+            <div class="col  align-middle forecastDays">Thu</div>
+            <div class="col  align-middle forecastDays">Fri</div>
+            <div class="col  align-middle forecastDays">Sat</div>
+            <div class="col  align-middle forecastDays">Sun</div>
+        </div>
+        <div class="row text-center align-items-center" style="height: 60px">
+            <div class="col forecastTemps">5°C</div>
+            <div class="col forecastTemps">5°C</div>
+            <div class="col forecastTemps">5°C</div>
+            <div class="col forecastTemps">5°C</div>
+            <div class="col forecastTemps">5°C</div>
+            <div class="col forecastTemps">5°C</div>
+            <div class="col forecastTemps">5°C</div>
+        </div>
+        <div class="row text-center align-items-center" style="height: 60px">
+            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
+            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
+            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
+            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
+            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
+            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
+            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
         </div>
     </div>
     <script src="src/index.js"></script>

@@ -1,3 +1,85 @@
+body {
+    padding: 20px;
+    width: 100%;
+}
+
+.box {
+    display: block;
+    padding: 20px;
+    border: 1px solid #02c39a;
+    border-radius: 10px;
+    width: 70%;
+}
+
+.searchInput {
+    background-color: #79dbac;
+    border: 1px solid #02c39a;
+    border-radius: 10px;
+    width: 70%;
+    height: 50px;
+}
+
+button {
+    background-color: #00a896;
+    border: 1px solid #028090;
+    width: 25%;
+    height: 50px;
+}
+
+.searchCityButton {
+    margin-left: 10px;
+    border-radius: 30px;
+}
+
+.currentTempInfo {
+    text-align: center;
+    border: 1px solid #028090;
+    border-radius: 10px;
+    color: #05668d;
+}
+
+.currentCityName {
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.currentTemp {
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.currentWeather {
+    font-size: 40px;
+    color: #fcb97d;
+}
+
+.currentLocationButton {
+    margin: 30px 0 40px 0;
+    border-radius: 30px;
+    width: 40%;
+}
+
+.tempConverterButton {
+    border-radius: 30px;
+    width: 20%;
+}
+
 p {
-    color: aqua;
+    font-size: 30px;
+    margin: 20px 0 20px 0;
+    font-weight: 100;
+    color: #79dbac;
+}
+
+.weatherLogo {
+    font-size: 30px;
+    color: #fcb97d;
+}
+
+.forecastDays {
+    font-size: 30px;
+}
+
+.forecastTemps {
+    font-size: 20px;
 }
