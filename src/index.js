@@ -19,12 +19,16 @@ let tempContainer = document.querySelector("#temp-container")
 let currentLocationButton = document.querySelector("#current-location-button");
 let celConverterButton = document.querySelector("#cel-convert-button");
 let farConverterButton = document.querySelector("#far-convert-button");
+let weatherIco = document.querySelector("#weather-ico");
+let hourContainer = document.querySelector("#hour-container");
+let body = document.querySelector("body")
 
 function getTemperature(city, unit) {
     if (city) {
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
 
         axios.get(apiUrl).then(function(response) {
+            weatherIco.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
             let symbol = 'C'
             if (unit === "imperial") {
                 symbol = 'F';
@@ -50,6 +54,10 @@ function showCurrentPosition(event) {
         });
     })
 }
+
+window.onload = showCurrentPosition;
+
+hourContainer.innerHTML = `It is currently ${hours}h${minutes}min`
 
 dateContainer.innerHTML = `Today is ${day} ${date} ${month}`;
 

@@ -14,6 +14,7 @@
 
 <body>
     <div class="container box">
+        <h1>Your favorite weather app</h1>
         <form>
             <input class="searchInput" type="text" placeholder="Type your city name" id="search-city-input">
             <button class="searchCityButton" type="submit" id="search-city-button">
@@ -25,39 +26,13 @@
                 Your location
             </button>
         <p class="dateContainer" id="date-container"></p>
+        <p class="dateContainer" id="hour-container"></p>
         <div class="row align-items-center justify-content-center currentTempInfo">
             <div class="col-3 currentCityName" id="city-container"></div>
             <div class="col-3 currentTemp" id="temp-container"></div>
-            <div class="col-3"><i class="fa-solid fa-sun currentWeather"></i></div>
+            <div class="col-3"><img class="currentWeatherIco" id="weather-ico" src=""></i>
+            </div>
             <div class="col-3"><button class="tempConverterButton" id="cel-convert-button">°C</button><button class="tempConverterButton" id="far-convert-button">°F</button></div>
-        </div>
-        <p>Forecast</p>
-        <div class="row text-center align-items-center" style="height: 60px">
-            <div class="col align-middle forecastDays">Mon</div>
-            <div class="col  align-middle forecastDays">Tue</div>
-            <div class="col  align-middle forecastDays">Wed</div>
-            <div class="col  align-middle forecastDays">Thu</div>
-            <div class="col  align-middle forecastDays">Fri</div>
-            <div class="col  align-middle forecastDays">Sat</div>
-            <div class="col  align-middle forecastDays">Sun</div>
-        </div>
-        <div class="row text-center align-items-center" style="height: 60px">
-            <div class="col forecastTemps">5°C</div>
-            <div class="col forecastTemps">5°C</div>
-            <div class="col forecastTemps">5°C</div>
-            <div class="col forecastTemps">5°C</div>
-            <div class="col forecastTemps">5°C</div>
-            <div class="col forecastTemps">5°C</div>
-            <div class="col forecastTemps">5°C</div>
-        </div>
-        <div class="row text-center align-items-center" style="height: 60px">
-            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
-            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
-            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
-            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
-            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
-            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
-            <div class="col"><i class="weatherLogo fa-solid fa-sun"></i></div>
         </div>
     </div>
     <script src="src/index.js"></script>
