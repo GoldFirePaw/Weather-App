@@ -9,6 +9,7 @@ let day = days[now.getDay()];
 let month = months[now.getMonth()];
 let date = now.getDate();
 let city = null;
+let unit = 'metric';
 
 let dateContainer = document.querySelector("#date-container");
 let searchedCity = document.querySelector("#search-city-input");
@@ -38,14 +39,14 @@ function showCurrentPosition(event) {
     navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
-        let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`
+        let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&units=${unit}&appid=${apiKey}`
 
         axios.get(apiUrl).then(function(response) {
             let cityName = response.data[0].name;
 
             city = cityName;
             cityContainer.innerHTML = cityName;
-            getTemperature(city, 'metric');
+            getTemperature(city, unit);
         });
     })
 }
@@ -56,16 +57,17 @@ searchForm.addEventListener("submit", function(event) {
     event.preventDefault();
     city = searchedCity.value;
     cityContainer.innerHTML = city;
-    getTemperature(city, 'metric');
+    getTemperature(city, unit);
 
 })
 
 currentLocationButton.addEventListener("click", showCurrentPosition);
 celConverterButton.addEventListener("click", function() {
-    getTemperature(city, 'metric');
+    unit = 'metric';
+    getTemperature(city, unit);
 
 });
 farConverterButton.addEventListener("click", function() {
-    getTemperature(city, 'imperial');
-
+    unit = 'imperial'
+    getTemperature(city, unit);
 });
