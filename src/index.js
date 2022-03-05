@@ -8,7 +8,7 @@ let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 let day = days[now.getDay()];
 let month = months[now.getMonth()];
 let date = now.getDate();
-
+let city = null;
 
 let dateContainer = document.querySelector("#date-container");
 let searchedCity = document.querySelector("#search-city-input");
@@ -16,15 +16,21 @@ let searchForm = document.querySelector("form");
 let cityContainer = document.querySelector("#city-container");
 let tempContainer = document.querySelector("#temp-container")
 let currentLocationButton = document.querySelector("#current-location-button");
+let celConverterButton = document.querySelector("#cel-convert-button");
+let farConverterButton = document.querySelector("#far-convert-button");
 
+function getTemperature(city, unit) {
+    if (city) {
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
 
-function getCityName(response) {
-    let cityName = response.data[0].name;
-    cityContainer.innerHTML = cityName;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
-    axios.get(apiUrl).then(function(response) {
-        tempContainer.innerHTML = `${Math.round(response.data.main.temp)}°C`;
-    });
+        axios.get(apiUrl).then(function(response) {
+            let symbol = 'C'
+            if (unit === "imperial") {
+                symbol = 'F';
+            }
+            tempContainer.innerHTML = `${Math.round(response.data.main.temp)}°${symbol}`;
+        });
+    }
 }
 
 function showCurrentPosition(event) {
@@ -32,33 +38,34 @@ function showCurrentPosition(event) {
     navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
-        apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`
-        axios.get(apiUrl).then(getCityName);
+        let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`
+
+        axios.get(apiUrl).then(function(response) {
+            let cityName = response.data[0].name;
+
+            city = cityName;
+            cityContainer.innerHTML = cityName;
+            getTemperature(city, 'metric');
+        });
     })
 }
-
-
-function onCharge() {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        let lat = position.coords.latitude;
-        let long = position.coords.longitude;
-        apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`
-        axios.get(apiUrl).then(getCityName);
-    })
-}
-
-onCharge()
 
 dateContainer.innerHTML = `Today is ${day} ${date} ${month}`;
 
 searchForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    cityContainer.innerHTML = searchedCity.value;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity.value}&units=metric&appid=${apiKey}`
-    axios.get(apiUrl).then(function(response) {
-        tempContainer.innerHTML = `${Math.round(response.data.main.temp)}°C`;
-    });
+    city = searchedCity.value;
+    cityContainer.innerHTML = city;
+    getTemperature(city, 'metric');
+
 })
 
-
 currentLocationButton.addEventListener("click", showCurrentPosition);
+celConverterButton.addEventListener("click", function() {
+    getTemperature(city, 'metric');
+
+});
+farConverterButton.addEventListener("click", function() {
+    getTemperature(city, 'imperial');
+
+});
