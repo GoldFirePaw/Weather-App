@@ -1,7 +1,7 @@
 let apiKey = "0f687b8ce7b2a635f662f6784501a1b1";
 
 let now = new Date();
-let minutes = now.getMinutes();
+let minutes = mins = ('0' + now.getMinutes()).slice(-2);
 let hours = now.getHours();
 let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
