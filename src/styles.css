@@ -1,43 +1,46 @@
 body {
     padding: 20px;
     width: 100%;
-    color: #05668d;
+    color: #e96f87;
+    font-family: "Patrick Hand", cursive;
 }
 
 .box {
+    background-image: url(/img/cloudsBackground.jpg);
+    background-size: cover;
     display: block;
     padding: 20px;
-    border: 1px solid #50d8d7;
+    border: 1px solid #e5989b;
     border-radius: 10px;
-    width: 70%;
+    width: 50%;
+    height: 800px;
 }
 
 h1 {
     font-size: 40px;
     margin: 20px 0 20px 0;
     font-weight: 300;
-    color: #79dbac;
 }
 
 .searchInput {
-    background-color: #b6e2d683;
-    border: 1px solid #50d8d7;
+    background-color: #fff8f593;
+    border: 1px solid #e5989b;
     border-radius: 10px;
     width: 60%;
     height: 50px;
 }
 
 button {
-    background-color: #3ebcc5;
-    border: 1px solid #2b9fb2;
+    background-color: #fff8f5e0;
+    border: 1px solid #e5989b;
+    color: #e96f87;
     width: 25%;
     height: 50px;
-    color: #ffffff;
 }
 
 button:hover {
-    background-color: #ffffff;
-    color: #3ebcc5;
+    background-color: #e96f87;
+    color: #ffffff;
 }
 
 .searchCityButton {
@@ -51,10 +54,10 @@ button:hover {
 
 .currentTempInfo {
     text-align: center;
-    border: 2px solid #50d8d7;
+    border: 2px solid #e5989b;
     border-radius: 10px;
-    color: #05668d;
-    background-color: #b6e2d636;
+    background-color: #fff8f581;
+    height: 130px;
 }
 
 .currentCityName {
@@ -69,7 +72,6 @@ button:hover {
 
 .currentWeather {
     font-size: 40px;
-    color: #fcb97d;
 }
 
 .lineTwoButton {
@@ -82,7 +84,6 @@ p {
     font-size: 30px;
     margin: 20px 0 20px 0;
     font-weight: 100;
-    color: #79dbac;
 }
 
 .otherWeatherInfo {
@@ -94,6 +95,11 @@ p {
     text-align: center;
     font-size: 20px;
     margin: 30px 0 30px 0;
+}
+
+.colForecast {
+    border: 1px solid #e96f87;
+    border-radius: 10px;
 }
 
 .forecastIcon {

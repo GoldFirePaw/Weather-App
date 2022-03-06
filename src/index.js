@@ -43,7 +43,7 @@ function displayForecast(response) {
     forecast.forEach(function(forecastDay, index) {
         if (index < 7) {
             forecastHTML = forecastHTML + `
-    <div class="col-1">
+    <div class="col-1 colForecast">
                 <div class="forecastDays">${formatDay(forecastDay.dt)}</div>
                 <img class="forecastIcon" src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png">
                 <div class="forecastTemps">${Math.round(forecastDay.temp.min)}°</div>
