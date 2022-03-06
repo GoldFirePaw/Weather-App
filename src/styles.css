@@ -1,19 +1,9 @@
 body {
-    padding: 20px;
-    width: 100%;
     color: #e96f87;
     font-family: "Patrick Hand", cursive;
-}
-
-.box {
+    text-shadow: 20px 10px 10px rgba(128, 128, 128, 0.185);
     background-image: url(/img/cloudsBackground.jpg);
     background-size: cover;
-    display: block;
-    padding: 20px;
-    border: 1px solid #e5989b;
-    border-radius: 10px;
-    width: 50%;
-    height: 800px;
 }
 
 h1 {
@@ -28,6 +18,7 @@ h1 {
     border-radius: 10px;
     width: 60%;
     height: 50px;
+    box-shadow: 20px 10px 10px rgba(128, 128, 128, 0.185);
 }
 
 button {
@@ -36,6 +27,7 @@ button {
     color: #e96f87;
     width: 25%;
     height: 50px;
+    box-shadow: 20px 10px 10px rgba(128, 128, 128, 0.185);
 }
 
 button:hover {
@@ -58,6 +50,7 @@ button:hover {
     border-radius: 10px;
     background-color: #fff8f581;
     height: 130px;
+    box-shadow: 10px 10px 20px rgba(128, 128, 128, 0.185);
 }
 
 .currentCityName {
@@ -100,18 +93,26 @@ p {
 .colForecast {
     border: 1px solid #e96f87;
     border-radius: 10px;
+    text-align: center;
+    padding: 0px;
+    background-color: #fff8f581;
+    box-shadow: 20px 10px 15px rgba(128, 128, 128, 0.185);
+    height: 300px;
 }
 
 .forecastIcon {
+    margin-bottom: 30px;
     width: 50px;
 }
 
 .forecastDays {
+    margin-bottom: 30px;
     font-size: 40px;
     font-weight: 200;
 }
 
 .forecastTemps {
+    margin-bottom: 30px;
     font-size: 25px;
     font-weight: 200;
 }
