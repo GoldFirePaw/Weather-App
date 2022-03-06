@@ -22,13 +22,51 @@ let farConverterButton = document.querySelector("#far-convert-button");
 let weatherIco = document.querySelector("#weather-ico");
 let hourContainer = document.querySelector("#hour-container");
 let body = document.querySelector("body")
+let lat = null;
+let long = null;
+
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000)
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    let day = days[date.getDay()]
+
+    return day
+}
+
+function displayForecast(response) {
+    console.log(response.data.daily)
+    let forecast = response.data.daily
+    let forecastElement = document.querySelector("#weather-forecast")
+    let forecastHTML = `<div class="row align-items-center justify-content-between forecast">`;
+    forecast.forEach(function(forecastDay, index) {
+        if (index < 7) {
+            forecastHTML = forecastHTML + `
+    <div class="col-1">
+                <div class="forecastDays">${formatDay(forecastDay.dt)}</div>
+                <img class="forecastIcon" src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png">
+                <div class="forecastTemps">${Math.round(forecastDay.temp.min)}°</div>
+                <div class="forecastTemps">${Math.round(forecastDay.temp.max)}°</div>
+                </div>`;
+        }
+    });
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+
+}
+
+function getForecast() {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=${unit}&appid=${apiKey}`
+    axios.get(apiUrl).then(displayForecast)
+}
+
 
 function getTemperature(city, unit) {
     if (city) {
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
-
         axios.get(apiUrl).then(function(response) {
             weatherIco.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+            lat = response.data.coord.lat;
+            long = response.data.coord.lon;
             let symbol = 'C'
             if (unit === "imperial") {
                 symbol = 'F';
@@ -36,13 +74,14 @@ function getTemperature(city, unit) {
             tempContainer.innerHTML = `${Math.round(response.data.main.temp)}°${symbol}`;
         });
     }
+    getForecast()
 }
 
 function showCurrentPosition(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(function(position) {
-        let lat = position.coords.latitude;
-        let long = position.coords.longitude;
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
         let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&units=${unit}&appid=${apiKey}`
 
         axios.get(apiUrl).then(function(response) {
@@ -54,6 +93,7 @@ function showCurrentPosition(event) {
         });
     })
 }
+
 
 window.onload = showCurrentPosition;
 

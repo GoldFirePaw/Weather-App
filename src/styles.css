@@ -58,13 +58,13 @@ button:hover {
 }
 
 .currentCityName {
-    font-size: 50px;
-    font-weight: 300;
+    font-size: 40px;
+    font-weight: 200;
 }
 
 .currentTemp {
-    font-size: 60px;
-    font-weight: 400;
+    font-size: 50px;
+    font-weight: 300;
 }
 
 .currentWeather {
@@ -90,15 +90,22 @@ p {
     color: #79dbac;
 }
 
-.weatherLogo {
-    font-size: 30px;
-    color: #fcb97d;
+.forecast {
+    text-align: center;
+    font-size: 20px;
+    margin: 30px 0 30px 0;
+}
+
+.forecastIcon {
+    width: 50px;
 }
 
 .forecastDays {
-    font-size: 30px;
+    font-size: 40px;
+    font-weight: 200;
 }
 
 .forecastTemps {
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 200;
 }
