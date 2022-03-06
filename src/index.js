@@ -10,6 +10,8 @@ let month = months[now.getMonth()];
 let date = now.getDate();
 let city = null;
 let unit = 'metric';
+let lat = null;
+let long = null;
 
 let dateContainer = document.querySelector("#date-container");
 let searchedCity = document.querySelector("#search-city-input");
@@ -22,8 +24,8 @@ let farConverterButton = document.querySelector("#far-convert-button");
 let weatherIco = document.querySelector("#weather-ico");
 let hourContainer = document.querySelector("#hour-container");
 let body = document.querySelector("body")
-let lat = null;
-let long = null;
+let weatherInfo = document.querySelector("#other-weather-info")
+
 
 function formatDay(timestamp) {
     let date = new Date(timestamp * 1000)
@@ -62,7 +64,14 @@ function getForecast() {
 
 function getTemperature(city, unit) {
     if (city) {
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+
+        axios.get(apiUrl).then(function(response) {
+            weatherInfo.innerHTML = `<strong>Humidity :</strong> ${response.data.main.humidity}% </br> <strong>Wind speed :</strong> ${Math.round((response.data.wind.speed)/1.6*3.6)} km/h`;
+
+        })
+        apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
+
         axios.get(apiUrl).then(function(response) {
             weatherIco.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
             lat = response.data.coord.lat;

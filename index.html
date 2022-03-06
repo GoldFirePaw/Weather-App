@@ -21,10 +21,14 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>
-        <button class="currentLocationButton" id="current-location-button">
+        <div class="row align-items-center justify-content-center">
+            <div class="col"><button class="lineTwoButton" id="current-location-button">
                 <i class="fa-solid fa-magnifying-glass-location"></i>
                 Your location
-            </button>
+            </button></div>
+            <div class="col"> <button class="lineTwoButton" id="cel-convert-button">°C</button></div>
+            <div class="col"> <button class="lineTwoButton" id="far-convert-button">°F</button></div>
+        </div>
         <p class="dateContainer" id="date-container"></p>
         <p class="dateContainer" id="hour-container"></p>
         <div class="row align-items-center justify-content-center currentTempInfo">
@@ -32,7 +36,7 @@
             <div class="col-3 currentTemp" id="temp-container"></div>
             <div class="col-3"><img class="currentWeatherIco" id="weather-ico" src=""></i>
             </div>
-            <div class="col-3"><button class="tempConverterButton" id="cel-convert-button">°C</button><button class="tempConverterButton" id="far-convert-button">°F</button></div>
+            <div class="col-3 otherWeatherInfo" id="other-weather-info"> </div>
         </div>
         <div id="weather-forecast">
 

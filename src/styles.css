@@ -72,15 +72,10 @@ button:hover {
     color: #fcb97d;
 }
 
-.currentLocationButton {
-    margin: 30px 0 40px 0;
+.lineTwoButton {
     border-radius: 30px;
-    width: 40%;
-}
-
-.tempConverterButton {
-    border-radius: 30px;
-    width: 50%;
+    width: 100%;
+    margin: 30px 0 30px 0;
 }
 
 p {
@@ -88,6 +83,11 @@ p {
     margin: 20px 0 20px 0;
     font-weight: 100;
     color: #79dbac;
+}
+
+.otherWeatherInfo {
+    font-size: 20px;
+    opacity: 70%;
 }
 
 .forecast {
